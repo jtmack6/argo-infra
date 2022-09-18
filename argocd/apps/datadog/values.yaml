@@ -2,6 +2,6 @@ targetSystem: "linux"
 datadog:
   apiKeyExistingSecret: datadog-secret
   appKeyExistingSecret: datadog-secret
-  clusterName: "kuck8s"
+  clusterName: "morgoth"
   kubelet:
     tlsVerify:  false
