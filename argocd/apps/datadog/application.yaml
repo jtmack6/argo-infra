@@ -10,8 +10,14 @@ spec:
     targetRevision: 3.1.2
     chart: datadog 
     helm:
-      valueFiles:
-        - values.yaml
+      values: |
+        targetSystem: "linux"
+        datadog:
+          apiKeyExistingSecret: datadog-secret
+          appKeyExistingSecret: datadog-secret
+          clusterName: "morgoth"
+          kubelet:
+            tlsVerify:  false
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: datadog 
