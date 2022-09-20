@@ -6,7 +6,7 @@ metadata:
 spec:
   project: argo-project
   source:
-    path: charts/argocd
+    path: argocd/charts/argocd
     repoURL: 'https://github.com/jtmack6/argo-infra.git'
     targetRevision: HEAD 
     helm:
