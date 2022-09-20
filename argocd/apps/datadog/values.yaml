@@ -1,4 +1,4 @@
-commonLabels: { team_name: morgoth }
+commonLabels: { "team_name": "morgoth" }
 targetSystem: "linux"
 datadog:
   apiKeyExistingSecret: datadog-secret
@@ -6,3 +6,4 @@ datadog:
   clusterName: "morgoth"
   kubelet:
     tlsVerify:  false
+  logLevel: DEBUG
