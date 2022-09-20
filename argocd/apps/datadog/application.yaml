@@ -10,27 +10,20 @@ spec:
       revision: HEAD
       files:
       - path: "argocd/datadog/**.yaml"
-  project: argo-project
-  source:
-    repoURL: https://helm.datadoghq.com
-    targetRevision: 3.1.2
-    chart: datadog 
-    helm:
-      values: |
-        targetSystem: "linux"
-        datadog:
-          apiKeyExistingSecret: datadog-secret
-          appKeyExistingSecret: datadog-secret
-          clusterName: "morgoth"
-          kubelet:
-            tlsVerify:  false
-      valueFiles:
-        - values.yaml
-  destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: datadog 
-  syncPolicy:
-    automated:
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=false
+    template:
+      metadata:
+        name: datadog
+      spec:
+        project: argo-project
+        source:
+          repoURL: https://helm.datadoghq.com
+          targetRevision: 3.1.2
+          chart: datadog 
+          helm:
+            values: |
+              {{values}}
+            valueFiles:
+              - values.yaml
+        destination:
+          server: 'https://kubernetes.default.svc'
+          namespace: datadog
