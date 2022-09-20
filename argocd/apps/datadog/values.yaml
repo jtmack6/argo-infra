@@ -1,3 +1,4 @@
+commonLabels: { team_name: morgoth }
 targetSystem: "linux"
 datadog:
   apiKeyExistingSecret: datadog-secret

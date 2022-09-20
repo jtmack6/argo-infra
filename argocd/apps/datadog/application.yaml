@@ -18,6 +18,7 @@ spec:
           clusterName: "morgoth"
           kubelet:
             tlsVerify:  false
+       valuesFile: values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: datadog 
