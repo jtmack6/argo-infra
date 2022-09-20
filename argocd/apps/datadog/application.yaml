@@ -10,14 +10,14 @@ spec:
     targetRevision: 3.1.2
     chart: datadog 
     helm:
-      values: |
-        targetSystem: "linux"
-        datadog:
-          apiKeyExistingSecret: datadog-secret
-          appKeyExistingSecret: datadog-secret
-          clusterName: "morgoth"
-          kubelet:
-            tlsVerify:  false
+      #      values: |
+      #  targetSystem: "linux"
+      #  datadog:
+      #    apiKeyExistingSecret: datadog-secret
+      #    appKeyExistingSecret: datadog-secret
+      #    clusterName: "morgoth"
+      #    kubelet:
+      #      tlsVerify:  false
       valueFiles:
         - values.yaml
   destination:
