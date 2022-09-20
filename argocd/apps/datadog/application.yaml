@@ -10,20 +10,20 @@ spec:
       revision: HEAD
       files:
       - path: "argocd/datadog/**.yaml"
-    template:
-      metadata:
-        name: datadog
-      spec:
-        project: argo-project
-        source:
-          repoURL: https://helm.datadoghq.com
-          targetRevision: 3.1.2
-          chart: datadog 
-          helm:
-            values: |
-              {{values}}
-            valueFiles:
-              - values.yaml
-        destination:
-          server: 'https://kubernetes.default.svc'
-          namespace: datadog
+  template:
+    metadata:
+      name: datadog
+    spec:
+      project: argo-project
+      source:
+        repoURL: https://helm.datadoghq.com
+        targetRevision: 3.1.2
+        chart: datadog 
+        helm:
+          values: |
+            {{values}}
+          valueFiles:
+            - values.yaml
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: datadog
