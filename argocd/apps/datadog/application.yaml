@@ -1,9 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Application
+kind: ApplicationSet
 metadata:
   name: datadog 
   namespace: argocd
 spec:
+  generators:
+  - git:
+      repoURL: https://github.com/jtmack6/argo-infra.git
+      revision: HEAD
+      files:
+      - path: "argocd/datadog/**.yaml"
   project: argo-project
   source:
     repoURL: https://helm.datadoghq.com
