@@ -8,3 +8,11 @@ values: |
     kubelet:
       tlsVerify:  false
     logLevel: INFO
+    processAgent:
+      enabled: true
+      processCollection: true
+    networkMonitoring:
+      enabled: true
+    podLabelsAsTags:
+      app: kube_app
+      release: helm_release
