@@ -7,4 +7,4 @@ values: |
     clusterName: "morgoth"
     kubelet:
       tlsVerify:  false
-    logLevel: DEBUG
+    logLevel: INFO
