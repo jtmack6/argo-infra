@@ -1,5 +1,4 @@
 argo-cd:
-  logLevel: debug
   dex:
     enabled: false
   server:
