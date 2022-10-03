@@ -5,6 +5,7 @@ values: |
     apiKeyExistingSecret: datadog-secret
     appKeyExistingSecret: datadog-secret
     clusterName: "morgoth"
+    tags: ["env:vultr", "newtag:something"]
     kubelet:
       tlsVerify:  false
     logLevel: INFO
