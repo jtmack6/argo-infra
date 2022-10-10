@@ -1,11 +1,39 @@
-argo-cd:
-  dex:
-    enabled: false
-  server:
-    extraArgs:
-      - --insecure
-    config:
-      repositories: |
-        - type: helm
-          name: argocd
-          url: https://argoproj.github.io/argo-helm
+server:
+  extraArgs: 
+    - "--insecure" 
+  ingress:
+    enabled: true
+    tls: 
+     - secretName: "argocert"
+       hosts: 
+       - "argocd.jtmack.com"
+    
+    hosts: 
+     - "argocd.jtmack.com"
+    
+    annotations:
+      kubernetes.io/ingress.class: "contour"
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      ingress.kubernetes.io/force-ssl-redirect: true
+      kubernetes.io/tls-acme: true
+                    
+  ingressGrpc:
+    enabled: true
+    https: true
+    tls: 
+     - secretName: "argogrpccert"
+       hosts: 
+       - "grpc.argocd.jtmack.com"
+    
+    hosts: 
+     - "grpc.argocd.jtmack.com"
+    
+    annotations:
+      kubernetes.io/ingress.class: "contour"
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      ingress.kubernetes.io/force-ssl-redirect: true
+      kubernetes.io/tls-acme: true
+  
+  service:
+    annotations:
+      projectcontour.io/upstream-protocol.h2c: "443,https"
